@@ -32,6 +32,7 @@ int main()
       // Clear the Screen (Black Color)
       App.Clear();
 
+      App.Draw(ball.display);
       App.Draw(player1.display);
       App.Draw(player2.display);
       

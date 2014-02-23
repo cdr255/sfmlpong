@@ -62,6 +62,7 @@ class Ball
   float difficulty;
   int max;
 public:
+  sf::Shape display;
   Ball(float);
   void serve();
   void move();
@@ -78,6 +79,7 @@ Ball::Ball(float diff)
   height = BALL_SIDE;
   difficulty = diff;
   max = 6;
+  display = sf::Shape::Rectangle(x, y, (x + width), (y + height), sf::Color(255, 255, 255, 200));
 }
 
 void Ball::serve()
