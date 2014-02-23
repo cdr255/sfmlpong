@@ -65,7 +65,7 @@ public:
   sf::Shape display;
   Ball(float);
   void serve();
-  void move();
+  void move(float);
   void print() const;
 };
 
@@ -125,9 +125,25 @@ void Ball::serve()
     }
 }
 
-void Ball::move()
+void Ball::move(float dt)
 {
-  std::cout << "Not Implemented Yet.\n";
+  // Wall Collisions
+  if(x < 0 || x > SCREEN_WIDTH)
+    xvel = xvel * -1;
+  if(y < 0 || y > SCREEN_HEIGHT)
+    yvel = yvel * -1;
+
+  // Update Position of Ball
+  x = x + (xvel * 200 * dt);
+  y = y + (yvel * 200 * dt);
+
+  // Update Display
+  display.SetPointPosition(0, x, y);
+  display.SetPointPosition(1, (x + width), y);
+  display.SetPointPosition(2, (x + width), (y + height));
+  display.SetPointPosition(3, x, (y + height));
+
+  
 }
       
 void Ball::print() const
