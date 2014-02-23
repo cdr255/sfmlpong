@@ -31,6 +31,9 @@ int main()
       
       // Clear the Screen (Black Color)
       App.Clear();
+
+      App.Draw(player1.display);
+      App.Draw(player2.display);
       
       // Display the Screen and Loop
       App.Display();

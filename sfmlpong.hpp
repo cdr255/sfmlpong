@@ -22,9 +22,11 @@ class Paddle
   int height;
   int speed;
 public:
+  sf::Shape display;
   Paddle(float, float, int, int, int, int);
   void print() const;
   void move(float, float);
+
 };
 
 Paddle::Paddle(float setx, float sety, int setscore, int setwidth, int setheight, int setspeed)
@@ -35,6 +37,7 @@ Paddle::Paddle(float setx, float sety, int setscore, int setwidth, int setheight
   width = setwidth;
   height = setheight;
   speed = setspeed;
+  display = sf::Shape::Rectangle(x, y, (x + width), (y + height), sf::Color(255, 255, 255, 200));
 }
 
 void Paddle::print() const
